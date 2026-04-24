@@ -1,0 +1,165 @@
+/* Styles for the carousel component */
+:host {
+        display: block;
+        font-family: Arial, sans-serif;
+        display: flex;
+        justify-content: center;
+        }
+
+/* Main container for the carousel */
+.carousel-container {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        background-color: #f9f9f9;
+        padding: 10px;
+        border-radius: 10px;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+/* Upper row: Arrow left - Img div - Arrow right */
+.upper-row {
+        display: flex;
+        align-items: center; /* Center vertically */
+        gap: 15px; /* Space between arrow and image */
+        }
+
+/* Image viewport styles (frame) */
+.img-viewport {
+        position: relative; /* For positioning the blur background */
+        width: 500px; /* Set a fixed width for the image viewport */
+        height: 300px; /* Set a fixed height for the image viewport */
+        overflow: hidden; 
+        border-radius: 8px;
+        
+        /* For strech mode */
+        background-color: #111;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+}
+
+/* BLUR BACKGROUND */
+.blur-background {
+        position: absolute;
+        top: -20px;
+        left: -20px;
+        bottom: -20px;
+        right: -20px;
+        background-size: cover;
+        background-position: center;
+        filter: blur(20px); /* Adjust the blur intensity as needed */
+        z-index: 0; /* Ensure the blurred background is behind the main image */
+        transition: background-image 0.3s ease-in-out, opacity 0.3s ease-in-out; /* Smooth transition for background changes */
+}
+
+/* Main image styles */
+.slide-img {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        object-fit: cover; /* Ensure the image covers the viewport without distortion */
+        display: block;
+
+        /* For strech mode */
+        z-index: 1; /* Ensure the image is above the background color in stretch mode */
+}
+
+/* Strech mode: image will cover the entire viewport, even if it means cropping */
+.slide-img.streched {
+        object-fit: cover; /* Cover the entire viewport, cropping if necessary */
+}
+
+.slide-img.not-streched {
+        object-fit: contain; /* Fit the entire image within the viewport, maintaining aspect ratio */
+}
+
+/* Animations */
+.slide-in-right {
+    animation: slideInRight 0.5s forwards;
+}
+
+.slide-out-left {
+    animation: slideOutLeft 0.5s forwards;
+}
+
+.slide-in-left {
+    animation: slideInLeft 0.5s forwards;
+}
+
+.slide-out-right {
+    animation: slideOutRight 0.5s forwards;
+}
+
+@keyframes slideInRight {
+    from { transform: translateX(100%); }
+    to { transform: translateX(0); }
+}
+
+@keyframes slideOutLeft {
+    from { transform: translateX(0); }
+    to { transform: translateX(-100%); }
+}
+
+@keyframes slideInLeft {
+    from { transform: translateX(-100%); }
+    to { transform: translateX(0); }
+}
+
+@keyframes slideOutRight {
+    from { transform: translateX(0); }
+    to { transform: translateX(100%); }
+}
+
+/* Navigation buttons styles */
+.nav-btn {
+        background: none;
+        border: none;
+        cursor: pointer;
+        padding: 5px;
+        transition: transform 0.2s ease-in-out; /* Smooth transition for hover effect */
+}
+
+/* Button will grow */
+.nav-btn:hover {
+        transform: scale(1.1); /* Slightly enlarge the button on hover */
+}
+
+/* Arrow icon styles */
+.nav-btn img {
+        /* Arrow size */
+        width: 40px;
+        height: 40px;
+        display: block;
+}
+
+/* Dots container styles */
+.dots-container {
+        margin-top: 15px;
+        display: flex;
+        gap: 80px; /* Space between dots */
+
+}
+
+/* Dot element will be created in JS */
+.dot {
+        width: 30px;
+        height: 30px;
+        background-color: #ccc; /* Inactive dot color */
+        border-radius: 50%;
+        cursor: pointer;
+        transition: background-color 0.3s ease-in-out; /* Smooth transition for active state */
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        font-size: 14px;
+        font-weight: bold;
+        color: white;
+}
+
+.dot.active {
+        background-color: #666; /* Active dot color */
+        transform: scale(1.2); /* Slightly enlarge the active dot */
+}

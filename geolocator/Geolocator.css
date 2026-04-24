@@ -1,0 +1,125 @@
+/* Container  */
+
+:host {
+        display: block;
+        width: 320px;
+        border: 2px solid #222;
+        border-radius: 12px;
+        overflow: hidden;
+        font-family: sans-serif;
+        margin: 20px;
+        box-shadow: 4px 4px 0px rgba(0,0,0,0.1);
+    }
+
+/* Header */
+
+.header {
+          display: flex;
+          justify-content: flex-end;
+          padding: 8px;
+          border-bottom: 2px solid #222;
+          background-color: #f9f9f9;
+        }
+
+.action-btn {
+          background: white;
+          border: 2px solid #222;
+          border-radius: 6px;
+          cursor: pointer;
+          font-weight: bold;
+          font-size: 16px;
+          padding: 2px 8px;
+          transition: background 0.2s;
+        }
+
+.action-btn:hover {
+          background-color: #e0e0e0;
+        }
+
+/* Body */
+
+.body-content {
+          display: block;
+        }
+/* Minimized state hides the body content */
+
+:host(.minimized) .body-content {
+    display: none;
+        }
+
+/* Remove border bottom from header when minimized */
+:host(.minimized) .header {
+    border-bottom: none;
+        }
+        
+/* Map container (placeholder) */
+
+.map-container {
+          height: 200px;
+          background-color: #e3f2fd;
+          position: relative;
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          border-bottom: 2px solid #222;
+        }
+
+/* Marker idle animation */
+
+.marker-idle {
+          width: 24px;
+          height: 24px;
+          background-color: #ff5252;
+          border: 2px solid #222;
+          border-radius: 50% 50% 50% 0;
+          transform: rotate(-45deg);
+          animation: floatIdle 2s infinite ease-in-out;
+        }
+
+@keyframes floatIdle {
+         0%, 100% { transform: rotate(-45deg) translate(0, 0); }
+         50% { transform: rotate(-45deg) translate(10px, -10px); }
+        }
+
+/* Controls */
+
+.controls {
+          padding: 16px;
+          background-color: white;
+        }
+
+.input-group {
+          display: flex;
+          align-items: center;
+          justify-content: space-between;
+          margin-bottom: 12px;
+        }
+.input-group label {
+          font-size: 14px;
+          font-weight: bold;
+        }
+
+.input-group input {
+          width: 65%;
+          padding: 6px;
+          border: 2px solid #222;
+          border-radius: 6px;
+          outline: none;
+        }
+
+.refresh-btn {
+          width: 100%;
+          padding: 12px;
+          margin-top: 8px;
+          background-color: white;
+          border: 2px solid #222;
+          border-radius: 25px;
+          font-weight: bold;
+          font-size: 16px;
+          cursor: pointer;
+          transition: background 0.2s;
+        }
+
+.refresh-btn:hover {
+          background-color: #f0f0f0;
+        }
