@@ -1,0 +1,225 @@
+:host {
+    display: block;
+    height: 100%;
+    background: var(--bg-base);
+    color: var(--text-primary);
+    font-family: 'Roboto', sans-serif;
+    padding: 32px 48px;
+    box-sizing: border-box;
+    overflow-y: hidden;
+}
+
+.song-list-container {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    max-width: 1400px;
+    margin: 0 auto;
+}
+
+.header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 32px;
+}
+
+h2 {
+    font-size: 36px;
+    font-weight: 700;
+    margin: 0;
+    letter-spacing: -0.5px;
+}
+
+.actions {
+    display: flex;
+    gap: 12px;
+}
+
+.actions button {
+    background: var(--divider);
+    border: none;
+    color: var(--text-primary);
+    cursor: pointer;
+    font-size: 16px;
+    padding: 10px 14px;
+    border-radius: 20px;
+    transition: background 0.2s;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.actions button:hover {
+    background: var(--divider-hover, rgba(255, 255, 255, 0.2));
+}
+
+#theme-toggle-btn {
+    /* Style consistency with other buttons in actions */
+    background: var(--divider);
+    border: none;
+    color: var(--text-primary);
+    cursor: pointer;
+    font-size: 16px;
+    padding: 10px 14px;
+    border-radius: 20px;
+    transition: background 0.2s, color 0.2s;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.search-bar {
+    margin-bottom: 32px;
+}
+
+#search-input {
+    width: 100%;
+    max-width: 450px;
+    padding: 14px 20px;
+    background: var(--bg-surface);
+    border: 1px solid transparent;
+    border-radius: 8px;
+    color: var(--text-primary);
+    font-size: 15px;
+    box-sizing: border-box;
+    transition: border-color 0.2s, background 0.2s;
+}
+
+#search-input::placeholder {
+    color: #888;
+}
+
+#search-input:focus {
+    outline: none;
+    border-color: var(--divider);
+    background: var(--bg-elevated);
+}
+
+#list-container {
+    flex: 1;
+    overflow-y: auto;
+    padding-right: 8px;
+}
+
+#list-container::-webkit-scrollbar {
+    width: 6px;
+}
+
+#list-container::-webkit-scrollbar-thumb {
+    background: rgba(255,255,255,0.2);
+    border-radius: 4px;
+}
+
+/* Using general CSS for dynamically created song-items */
+::slotted(.song-item), .song-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 12px 16px !important;
+    border-bottom: 1px solid rgba(255,255,255,0.05) !important;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background 0.2s;
+}
+
+.song-item:hover {
+    background: rgba(255,255,255,0.1) !important;
+}
+
+/* Active Highlight */
+.song-item.active {
+    background: rgba(255, 255, 255, 0.15) !important;
+}
+
+.song-item.active:hover {
+    background: rgba(255, 255, 255, 0.2) !important;
+}
+
+.song-name {
+    font-size: 15px;
+    font-weight: 500;
+    color: var(--text-primary);
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.delete-item-btn {
+    background: none;
+    border: none;
+    color: var(--text-secondary);
+    cursor: pointer;
+    padding: 8px;
+    border-radius: 50%;
+    transition: 0.2s;
+}
+
+.delete-item-btn:hover {
+    color: #fff;
+    background: rgba(255,255,255,0.1);
+}
+
+/* Modals */
+dialog {
+    background: var(--bg-surface) !important;
+    color: var(--text-primary);
+    border: 1px solid var(--divider) !important;
+    border-radius: 12px !important;
+    padding: 32px !important;
+    box-shadow: 0 16px 32px rgba(0,0,0,0.5) !important;
+    width: 400px !important;
+}
+
+dialog::backdrop {
+    background: rgba(0,0,0,0.7);
+}
+
+dialog h3 {
+    margin: 0 0 24px 0 !important;
+    font-weight: 500;
+    font-size: 20px;
+}
+
+dialog input {
+    background: var(--bg-base) !important;
+    border: 1px solid var(--divider) !important;
+    color: var(--text-primary) !important;
+    padding: 14px !important;
+    border-radius: 8px !important;
+    font-size: 15px;
+}
+
+dialog input:focus {
+    outline: none;
+    border-color: var(--text-primary) !important;
+}
+
+dialog button {
+    border: none !important;
+    padding: 10px 20px !important;
+    border-radius: 20px !important;
+    font-size: 14px;
+    font-weight: 500 !important;
+    cursor: pointer;
+    transition: background 0.2s, color 0.2s;
+}
+
+#cancel-edit-btn {
+    background: transparent !important;
+    color: var(--text-secondary) !important;
+}
+
+#cancel-edit-btn:hover {
+    background: var(--divider) !important;
+    color: var(--text-primary) !important;
+}
+
+#save-metadata-btn {
+    background: var(--text-primary) !important;
+    color: var(--bg-base) !important;
+}
+
+#save-metadata-btn:hover {
+    background: var(--accent-hover) !important;
+}
