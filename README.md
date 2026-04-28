@@ -87,12 +87,12 @@ These are the practices and projects currently available in the repository:
 
 These are some of the most important works developed during the course. Each one has its own internal documentation when applicable.
 
-### 👾 [Space Invaders Clone](space%20invaders%20clone/README.md)
+### [Space Invaders Clone](space%20invaders%20clone/README.md)
 An arcade classic clone developed with vanilla JavaScript, custom sprites, and original gameplay logic.
 * **Features**: player movement, shooting, enemies, collisions, progressive difficulty, and sound.
 * **Documentation**: [Project README](space%20invaders%20clone/README.md)
 
-### 🎵 [Music Player](music%20player/README.md)
+### [Music Player](music%20player/README.md)
 A local audio player with modular playlist management and browser persistence.
 * **Features**: playback, playlists, local storage, and separated components.
 * **Documentation**: [Project README](music%20player/README.md)
